@@ -23,8 +23,8 @@ jobs:
           tag: $DOCKER_TAG
       - docker/push:
           digest-path: /tmp/digest.txt
-          image: $DOCKER_IMAGE
-          tag: $DOCKER_TAG
+          image: nhanhuynh/react-docker
+          tag: latest
       - run:
           command: |
             echo "Digest is: $(</tmp/digest.txt)"
