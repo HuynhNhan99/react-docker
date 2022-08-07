@@ -34,9 +34,9 @@ workflows:
   build-deploy:
     jobs:
       - node/test
-      - build-and-push
+      - build-and-push:
           requires:
-            -node/test
+            - node/test
           filters:
             branches:
               only:
