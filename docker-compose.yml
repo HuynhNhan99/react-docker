@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+  mywebsite:
+    image: nhanhuynh99/react-docker:latest
+    ports:
+      - "8000:80"
