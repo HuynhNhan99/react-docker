@@ -16,17 +16,17 @@ jobs:
           version: 20.10.11
       - checkout
       - run:
+          name: "Build && Push "
           command: |
             docker logout
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
             docker build -t "$DOCKER_IMAGE:$DOCKER_TAG" .
-      - docker/push:
-          digest-path: /tmp/digest.txt
-          image: nhanhuynh/react-docker
-          tag: latest
+            docker push "$DOCKER_IMAGE:$DOCKER_TAG" 
       - run:
-          command: |
-            echo "Digest is: $(</tmp/digest.txt)"
+          name: "Docker Logout"
+          when: always
+          command: docker logout
+          
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
