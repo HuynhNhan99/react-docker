@@ -72,3 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Getting Started with docker-compose
 
 ### `docker-compose up -d`
+
+Runs the app in the development mode.\
+Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
