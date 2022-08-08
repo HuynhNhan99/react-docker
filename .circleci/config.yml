@@ -15,6 +15,9 @@ jobs:
       - setup_remote_docker:
           version: 20.10.11
       - checkout
+      - run:
+          command: |
+            docker logout
       - docker/check:
           docker-username: DOCKER_USER
           docker-password: DOCKER_PASSWORD
