@@ -18,12 +18,8 @@ jobs:
       - run:
           command: |
             docker logout
-      - docker/check:
-          docker-username: DOCKER_USER
-          docker-password: DOCKER_PASSWORD
-      - docker/build:
-          image: $DOCKER_IMAGE
-          tag: $DOCKER_TAG
+            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+            docker build -t "$DOCKER_IMAGE:$DOCKER_TAG" .
       - docker/push:
           digest-path: /tmp/digest.txt
           image: nhanhuynh/react-docker
